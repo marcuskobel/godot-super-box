@@ -222,6 +222,7 @@ hframes = 11
 
 [node name="animation" type="AnimationPlayer" parent="."]
 autoplay = "idle"
+playback_speed = 2.0
 anims/RESET = SubResource( 1 )
 anims/hit = SubResource( 46 )
 anims/idle = SubResource( 2 )
@@ -237,11 +238,11 @@ shape = SubResource( 43 )
 [node name="raycast" type="RayCast2D" parent="raycasts"]
 position = Vector2( -11, 0 )
 enabled = true
-cast_to = Vector2( 0, 5 )
+cast_to = Vector2( 0, 1 )
 collision_mask = 8
 
 [node name="raycast2" type="RayCast2D" parent="raycasts"]
 position = Vector2( 11, 0 )
 enabled = true
-cast_to = Vector2( 0, 5 )
+cast_to = Vector2( 0, 1 )
 collision_mask = 8
