@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var velocity = Vector2.ZERO
-var move_speed = 500
+var move_speed = 120
 var gravity = 1000
 var jump_force = -320
 var is_grounded
@@ -21,7 +21,7 @@ func _physics_process(delta):
 
 
 func _get_input():
-	velocity.x = 0
+	#velocity.x = 0
 	var move_direction = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
 	velocity.x = lerp(velocity.x, move_speed * move_direction, 0.2)
 	

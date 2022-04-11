@@ -1,7 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/Enemies/AngryPig/Walk (36x30).png" type="Texture" id=1]
 [ext_resource path="res://Assets/Enemies/AngryPig/Run (36x30).png" type="Texture" id=2]
+[ext_resource path="res://Assets/Enemies/AngryPig/Hit 1 (36x30).png" type="Texture" id=3]
+[ext_resource path="res://Assets/Enemies/AngryPig/Hit 2 (36x30).png" type="Texture" id=4]
+[ext_resource path="res://Scripts/AngryPig.gd" type="Script" id=5]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -52,6 +55,46 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 2.0 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "dead"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("sprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 5 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -105,6 +148,46 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 2.0 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "takehit"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("sprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 5 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -164,6 +247,9 @@ tracks/3/keys = {
 extents = Vector2( 13.5, 13.5 )
 
 [node name="AngryPig" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 9
+script = ExtResource( 5 )
 
 [node name="sprite" type="Sprite" parent="."]
 position = Vector2( 0, -15 )
@@ -174,10 +260,18 @@ hframes = 16
 autoplay = "walk"
 playback_speed = 2.0
 anims/RESET = SubResource( 1 )
+anims/dead = SubResource( 6 )
 anims/run = SubResource( 2 )
+anims/takehit = SubResource( 5 )
 anims/walk = SubResource( 3 )
 
 [node name="collision" type="CollisionShape2D" parent="."]
 position = Vector2( 0.5, -13.5 )
 shape = SubResource( 4 )
 one_way_collision_margin = 2.0
+
+[node name="ray_wall" type="RayCast2D" parent="."]
+position = Vector2( 0, -13 )
+enabled = true
+cast_to = Vector2( -15, 0 )
+collision_mask = 8
