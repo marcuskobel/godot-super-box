@@ -1086,7 +1086,7 @@ position = Vector2( 0, 2 )
 motion_mirroring = Vector2( 288, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/forest"]
-position = Vector2( 0, 132 )
+position = Vector2( 1, 132 )
 scale = Vector2( 1.2, 1.2 )
 texture = ExtResource( 2 )
 centered = false
@@ -1119,8 +1119,72 @@ shape = SubResource( 45 )
 position = Vector2( 303, 277 )
 
 [node name="AngryPig" parent="." instance=ExtResource( 10 )]
-position = Vector2( 562, 128 )
-collision_layer = 2
-collision_mask = 9
+position = Vector2( 548, 51 )
+
+[node name="AngryPig2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 173, 153 )
+
+[node name="AngryPig3" parent="." instance=ExtResource( 10 )]
+position = Vector2( 106, 70 )
+
+[node name="AngryPig4" parent="." instance=ExtResource( 10 )]
+position = Vector2( 332, 48 )
+
+[node name="AngryPig5" parent="." instance=ExtResource( 10 )]
+position = Vector2( 436, 68 )
+
+[node name="AngryPig6" parent="." instance=ExtResource( 10 )]
+position = Vector2( 494, 52 )
+
+[node name="AngryPig7" parent="." instance=ExtResource( 10 )]
+position = Vector2( 604, 54 )
+
+[node name="AngryPig21" parent="." instance=ExtResource( 10 )]
+position = Vector2( 67, 97 )
+
+[node name="AngryPig22" parent="." instance=ExtResource( 10 )]
+position = Vector2( 236, 157 )
+
+[node name="AngryPig23" parent="." instance=ExtResource( 10 )]
+position = Vector2( 324, 96 )
+
+[node name="AngryPig8" parent="." instance=ExtResource( 10 )]
+position = Vector2( 44, 53 )
+
+[node name="AngryPig9" parent="." instance=ExtResource( 10 )]
+position = Vector2( 168, 51 )
+
+[node name="AngryPig10" parent="." instance=ExtResource( 10 )]
+position = Vector2( 120, 131 )
+
+[node name="AngryPig11" parent="." instance=ExtResource( 10 )]
+position = Vector2( 190, 98 )
+
+[node name="AngryPig12" parent="." instance=ExtResource( 10 )]
+position = Vector2( 397, 52 )
+
+[node name="AngryPig13" parent="." instance=ExtResource( 10 )]
+position = Vector2( 236, 53 )
+
+[node name="AngryPig14" parent="." instance=ExtResource( 10 )]
+position = Vector2( 264, 104 )
+
+[node name="AngryPig15" parent="." instance=ExtResource( 10 )]
+position = Vector2( 392, 94 )
+
+[node name="AngryPig16" parent="." instance=ExtResource( 10 )]
+position = Vector2( 305, 140 )
+
+[node name="AngryPig17" parent="." instance=ExtResource( 10 )]
+position = Vector2( 379, 138 )
+
+[node name="AngryPig18" parent="." instance=ExtResource( 10 )]
+position = Vector2( 468, 113 )
+
+[node name="AngryPig19" parent="." instance=ExtResource( 10 )]
+position = Vector2( 606, 124 )
+
+[node name="AngryPig20" parent="." instance=ExtResource( 10 )]
+position = Vector2( 537, 102 )
 
 [connection signal="body_entered" from="fall-zone" to="fall-zone" method="_on_fallzone_body_entered"]

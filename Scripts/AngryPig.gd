@@ -10,6 +10,16 @@ func _physics_process(delta):
 	# caclulate Y velocity
 	velocity.y += gravity * delta
 	
-	velocity.x = speed * move_direction
-	
+	# calculate X velocity
+	velocity.x = speed * move_direction	
 	velocity = move_and_slide(velocity)
+
+	if move_direction == 1:
+		$sprite.flip_h = true
+	else:
+		$sprite.flip_h = false
+	
+	if $ray_wall.is_colliding():
+		#$animation.play()
+		move_direction *= -1
+		$ray_wall.scale.x *= -1
