@@ -46,7 +46,9 @@ func _set_animation():
 	
 	if !is_grounded:
 		anim = "jump"
-	elif velocity.x != 0:
+		
+	# here I had to do a minor baka to fix "run" animation which will never go back to exactly 0
+	elif velocity.x > 10 or velocity.x < -10:
 		anim = "run"
 	
 	if $animation.assigned_animation != anim:
