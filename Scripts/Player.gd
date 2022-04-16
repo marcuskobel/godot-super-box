@@ -1,11 +1,14 @@
 extends KinematicBody2D
 
+var move_direction = 0
 var velocity = Vector2.ZERO
 var move_speed = 120
 var gravity = 1000
 var jump_force = -320
 var is_grounded
 onready var raycasts = $raycasts
+var got_hurt = false
+var knockback_intensity = 200
 
 
 func _physics_process(delta):
@@ -22,7 +25,7 @@ func _physics_process(delta):
 
 func _get_input():
 	#velocity.x = 0
-	var move_direction = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
+	move_direction = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
 	velocity.x = lerp(velocity.x, move_speed * move_direction, 0.2)
 	
 	if move_direction != 0:
@@ -44,6 +47,9 @@ func _check_is_grounded():
 func _set_animation():
 	var anim = "idle"
 	
+	if got_hurt:
+		anim = "hurt"
+		
 	if !is_grounded and velocity.y < 0:
 		anim = "jump"
 		
@@ -58,5 +64,18 @@ func _set_animation():
 		$animation.play(anim)
 
 
+func knock_player_back():
+	# quick detail #1. according to code logic, $sprite.scale.x will always contain 1 or -1, nothing else
+	# if this changes in the future, this also has to be changed.
+	# TO DO: enhance this in the future to make knockback happen in the same direction as the colision is
+	# happening, regardless direction  player is going.
+	velocity.x = -$sprite.scale.x * knockback_intensity
+	velocity = move_and_slide(velocity)
+
+
 func _on_hurtbox_body_entered(body):
 	print(body.name + " has collided.")
+	got_hurt = true
+	knock_player_back()
+	yield(get_tree().create_timer(0.5), "timeout")
+	got_hurt = false

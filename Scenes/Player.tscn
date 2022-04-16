@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Main Characters/Ninja Frog/Idle (32x32).png" type="Texture" id=2]
@@ -127,6 +127,47 @@ tracks/2/keys = {
 "values": [ 7 ]
 }
 
+[sub_resource type="Animation" id=49]
+resource_name = "hurt"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("sprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 7 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6 ]
+}
+
 [sub_resource type="Animation" id=2]
 resource_name = "idle"
 length = 1.1
@@ -250,7 +291,7 @@ tracks/2/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=43]
-extents = Vector2( 11, 13 )
+extents = Vector2( 11, 12.5 )
 
 [sub_resource type="RectangleShape2D" id=48]
 extents = Vector2( 12, 10 )
@@ -266,16 +307,16 @@ hframes = 11
 
 [node name="animation" type="AnimationPlayer" parent="."]
 autoplay = "idle"
-playback_speed = 2.0
 anims/RESET = SubResource( 1 )
 anims/fall = SubResource( 47 )
 anims/hit = SubResource( 46 )
+anims/hurt = SubResource( 49 )
 anims/idle = SubResource( 2 )
 anims/jump = SubResource( 44 )
 anims/run = SubResource( 45 )
 
 [node name="colision" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -13 )
+position = Vector2( 0, -12.5 )
 shape = SubResource( 43 )
 
 [node name="raycasts" type="Node2D" parent="."]
