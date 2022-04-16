@@ -1118,6 +1118,36 @@ shape = SubResource( 45 )
 [node name="gun-box" parent="items" instance=ExtResource( 9 )]
 position = Vector2( 303, 277 )
 
+[node name="gun-box2" parent="items" instance=ExtResource( 9 )]
+position = Vector2( 451, 309 )
+
+[node name="gun-box3" parent="items" instance=ExtResource( 9 )]
+position = Vector2( 535, 262 )
+
+[node name="gun-box4" parent="items" instance=ExtResource( 9 )]
+position = Vector2( 232, 182 )
+
+[node name="gun-box5" parent="items" instance=ExtResource( 9 )]
+position = Vector2( 47, 262 )
+
+[node name="gun-box6" parent="items" instance=ExtResource( 9 )]
+position = Vector2( 389, 230 )
+
+[node name="gun-box7" parent="items" instance=ExtResource( 9 )]
+position = Vector2( 136, 230 )
+
+[node name="gun-box8" parent="items" instance=ExtResource( 9 )]
+position = Vector2( 159, 310 )
+
+[node name="gun-box9" parent="items" instance=ExtResource( 9 )]
+position = Vector2( 605, 214 )
+
+[node name="gun-box10" parent="items" instance=ExtResource( 9 )]
+position = Vector2( 232, 246 )
+
+[node name="gun-box11" parent="items" instance=ExtResource( 9 )]
+position = Vector2( 513, 198 )
+
 [node name="AngryPig" parent="." instance=ExtResource( 10 )]
 position = Vector2( 548, 51 )
 

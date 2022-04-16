@@ -70,7 +70,7 @@ func _knock_player_back(body):
 
 
 func _on_hurtbox_body_entered(body):
-	print(body.name + " has collided.")
+	#print(body.name + " has collided.")
 	got_hurt = true
 	_knock_player_back(body)
 	yield(get_tree().create_timer(0.5), "timeout")
