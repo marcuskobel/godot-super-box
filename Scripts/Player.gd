@@ -64,18 +64,14 @@ func _set_animation():
 		$animation.play(anim)
 
 
-func knock_player_back():
-	# quick detail #1. according to code logic, $sprite.scale.x will always contain 1 or -1, nothing else
-	# if this changes in the future, this also has to be changed.
-	# TO DO: enhance this in the future to make knockback happen in the same direction as the colision is
-	# happening, regardless direction  player is going.
-	velocity.x = -$sprite.scale.x * knockback_intensity
+func _knock_player_back(body):
+	velocity.x = body.move_direction * knockback_intensity
 	velocity = move_and_slide(velocity)
 
 
 func _on_hurtbox_body_entered(body):
 	print(body.name + " has collided.")
 	got_hurt = true
-	knock_player_back()
+	_knock_player_back(body)
 	yield(get_tree().create_timer(0.5), "timeout")
 	got_hurt = false
