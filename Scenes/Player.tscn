@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Main Characters/Ninja Frog/Idle (32x32).png" type="Texture" id=2]
 [ext_resource path="res://Assets/Main Characters/Ninja Frog/Jump (32x32).png" type="Texture" id=3]
 [ext_resource path="res://Assets/Main Characters/Ninja Frog/Run (32x32).png" type="Texture" id=4]
 [ext_resource path="res://Assets/Main Characters/Ninja Frog/Hit (32x32).png" type="Texture" id=5]
+[ext_resource path="res://Assets/Main Characters/Ninja Frog/Fall (32x32).png" type="Texture" id=6]
 
 [sub_resource type="Animation" id=1]
 length = 0.1
@@ -43,6 +44,46 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 11 ]
+}
+
+[sub_resource type="Animation" id=47]
+resource_name = "fall"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 6 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("sprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
 }
 
 [sub_resource type="Animation" id=46]
@@ -224,6 +265,7 @@ hframes = 11
 autoplay = "idle"
 playback_speed = 2.0
 anims/RESET = SubResource( 1 )
+anims/fall = SubResource( 47 )
 anims/hit = SubResource( 46 )
 anims/idle = SubResource( 2 )
 anims/jump = SubResource( 44 )

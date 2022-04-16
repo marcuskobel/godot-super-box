@@ -44,8 +44,11 @@ func _check_is_grounded():
 func _set_animation():
 	var anim = "idle"
 	
-	if !is_grounded:
+	if !is_grounded and velocity.y < 0:
 		anim = "jump"
+		
+	elif !is_grounded and velocity.y > 0:
+		anim = "fall"
 		
 	# here I had to do a minor baka to fix "run" animation which will never go back to exactly 0
 	elif velocity.x > 10 or velocity.x < -10:
