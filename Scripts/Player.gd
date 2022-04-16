@@ -56,3 +56,7 @@ func _set_animation():
 	
 	if $animation.assigned_animation != anim:
 		$animation.play(anim)
+
+
+func _on_hurtbox_body_entered(body):
+	print(body.name + " has collided.")
