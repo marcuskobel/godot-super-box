@@ -1167,7 +1167,7 @@ position = Vector2( 436, 68 )
 position = Vector2( 494, 52 )
 
 [node name="AngryPig7" parent="." instance=ExtResource( 10 )]
-position = Vector2( 604, 54 )
+position = Vector2( 606, 47 )
 
 [node name="AngryPig21" parent="." instance=ExtResource( 10 )]
 position = Vector2( 67, 97 )
@@ -1179,7 +1179,7 @@ position = Vector2( 236, 157 )
 position = Vector2( 324, 96 )
 
 [node name="AngryPig8" parent="." instance=ExtResource( 10 )]
-position = Vector2( 44, 53 )
+position = Vector2( 37, 47 )
 
 [node name="AngryPig9" parent="." instance=ExtResource( 10 )]
 position = Vector2( 168, 51 )

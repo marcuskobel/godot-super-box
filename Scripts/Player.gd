@@ -65,6 +65,8 @@ func _set_animation():
 
 
 func _knock_player_back(body):
+	# TO DO: compare direction beetween player and pigs, and make sure player ALWAYS
+	# knockback AWAY from pig, even if player colides on back of pig (doesn't happen today)
 	velocity.x = body.move_direction * knockback_intensity
 	velocity = move_and_slide(velocity)
 
